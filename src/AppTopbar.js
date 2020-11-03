@@ -30,13 +30,13 @@ const AppTopbar = (props) => {
                         </button>
                     </li>
                     <li className={notificationsItemClassName}>
-                    <button type="button" className="p-link" onClick={props.onTopbarNotification}>
+                        <button type="button" className="p-link" onClick={props.onTopbarNotification}>
                             <i className="pi pi-bell"></i>
                             <span className="topbar-badge">5</span>
                         </button>
                         <ul className="notifications-menu fade-in-up">
                             <li role="menuitem">
-                            <button type="button" className="p-link" tabIndex="0">
+                                <button type="button" className="p-link" tabIndex="0">
                                     <i className="pi pi-shopping-cart"></i>
                                     <div className="notification-item">
                                         <div className="notification-summary">New Order</div>
@@ -45,7 +45,7 @@ const AppTopbar = (props) => {
                                 </button>
                             </li>
                             <li role="menuitem">
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-check-square"></i>
                                     <div className="notification-item">
                                         <div className="notification-summary">Withdrawn Completed</div>
@@ -54,7 +54,7 @@ const AppTopbar = (props) => {
                                 </button>
                             </li>
                             <li role="menuitem">
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-chart-line"></i>
                                     <div className="notification-item">
                                         <div className="notification-summary">Monthly Reports</div>
@@ -63,7 +63,7 @@ const AppTopbar = (props) => {
                                 </button>
                             </li>
                             <li role="menuitem">
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-comments"></i>
                                     <div className="notification-item">
                                         <div className="notification-summary">Comments</div>
@@ -72,7 +72,7 @@ const AppTopbar = (props) => {
                                 </button>
                             </li>
                             <li role="menuitem">
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-exclamation-circle"></i>
                                     <div className="notification-item">
                                         <div className="notification-summary">Chargeback Request</div>
@@ -84,37 +84,37 @@ const AppTopbar = (props) => {
                     </li>
 
                     <li className={profileItemClassName}>
-                    <button type="button" className="p-link" onClick={props.onTopbarUserMenu}>
+                        <button type="button" className="p-link" onClick={props.onTopbarUserMenu}>
                             <img src="assets/demo/images/avatar/profile.jpg" alt="diamond-layout" className="profile-image" />
                             <span className="profile-name">Amelia Stone</span>
                         </button>
                         <ul className="profile-menu fade-in-up">
                             <li>
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-user"></i>
                                     <span>Profile</span>
                                 </button>
                             </li>
                             <li>
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-cog"></i>
                                     <span>Settings</span>
                                 </button>
                             </li>
                             <li>
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-calendar"></i>
                                     <span>Calendar</span>
                                 </button>
                             </li>
                             <li>
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-inbox"></i>
                                     <span>Inbox</span>
                                 </button>
                             </li>
                             <li>
-                            <button type="button" className="p-link">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-power-off"></i>
                                     <span>Logout</span>
                                 </button>
@@ -123,7 +123,7 @@ const AppTopbar = (props) => {
                     </li>
 
                     <li className="right-sidebar-item">
-                    <button type="button" className="p-link" onClick={props.onRightMenuButtonClick}>
+                        <button type="button" className="p-link" onClick={props.onRightMenuButtonClick}>
                             <i className="pi pi-align-right"></i>
                         </button>
                     </li>
