@@ -17,7 +17,7 @@ const AppRightMenu = (props) => {
         },
     ];
 
-    const [selectedAmount, setSelectedAmount] = useState(amount[0]);
+    const [selectedAmount, setSelectedAmount] = useState(amount[0].value);
 
     const sidebarClassName = classNames('layout-sidebar-right', {
         'layout-sidebar-right-active': props.rightMenuActive

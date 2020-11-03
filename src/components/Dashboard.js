@@ -7,6 +7,50 @@ import { Column } from 'primereact/column';
 import { Menu } from 'primereact/menu';
 import ProductService from '../service/ProductService';
 
+const ordersChart = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+        {
+            label: 'New',
+            data: [2, 7, 20, 9, 16, 9, 5],
+            backgroundColor: ['rgba(100, 181, 246, 0.2)'],
+            borderColor: ['#64B5F6'],
+            borderWidth: 3,
+            fill: true
+        }
+    ]
+};
+
+const ordersChartOptions = {
+    legend: {
+        display: true,
+    },
+    responsive: true,
+    hover: {
+        mode: 'index',
+    },
+    scales: {
+        yAxes: [
+            {
+                ticks: {
+                    min: 0,
+                    max: 20
+                }
+            }
+        ]
+    }
+};
+
+const revenueChart = {
+    labels: ['Direct', 'Promoted', 'Affiliate'],
+    datasets: [
+        {
+            data: [40, 35, 25],
+            backgroundColor: ['#64B5F6', '#7986CB', '#4DB6AC']
+        }
+    ]
+};
+
 export const Dashboard = () => {
 
     const orderWeek = [
@@ -29,50 +73,6 @@ export const Dashboard = () => {
             ]
         }
     ];
-
-    const ordersChart = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-            {
-                label: 'New',
-                data: [2, 7, 20, 9, 16, 9, 5],
-                backgroundColor: ['rgba(100, 181, 246, 0.2)'],
-                borderColor: ['#64B5F6'],
-                borderWidth: 3,
-                fill: true
-            }
-        ]
-    };
-
-    const ordersChartOptions = {
-        legend: {
-            display: true,
-        },
-        responsive: true,
-        hover: {
-            mode: 'index',
-        },
-        scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        min: 0,
-                        max: 20
-                    }
-                }
-            ]
-        }
-    };
-
-    const revenueChart = {
-        labels: ['Direct', 'Promoted', 'Affiliate'],
-        datasets: [
-            {
-                data: [40, 35, 25],
-                backgroundColor: ['#64B5F6', '#7986CB', '#4DB6AC']
-            }
-        ]
-    };
 
     const menuRef = useRef(null);
     const chartRef = useRef(null);

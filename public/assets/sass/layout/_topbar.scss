@@ -78,7 +78,8 @@
                 border-left: 1px solid $dividerColor;
                 border-right: 1px solid $dividerColor;
 
-                > a {
+                > a,
+                > .p-link {
                     width: auto;
                     height: auto;
                     @include flex();
@@ -96,12 +97,14 @@
             }
 
             &.right-sidebar-item {
-                > a {
+                > a,
+                > .p-link {
                     background: $topbarIconBg;
                 }
             }
 
-            > a {
+            > a,
+            > .p-link {
                 width: 2.5rem;
                 height: 2.5rem;
                 line-height: 2.5rem;
@@ -164,7 +167,8 @@
                 transform-origin: center top;
 
                 li {
-                    a {
+                    a,
+                    .p-link {
                         color: $textColor;
                         padding: .5rem;
                         @include flex();
@@ -172,6 +176,7 @@
                         border-radius: $borderRadius;
                         transition: background-color $transitionDuration;
                         cursor: pointer;
+                        width: 100%;
 
                         &:hover {
                             background: $itemHoverBg;
