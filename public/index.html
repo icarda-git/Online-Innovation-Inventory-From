@@ -10,9 +10,30 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="PrimeReact Diamond Layout"/>
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  </head>
+
+    <link id="theme-css" rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/theme/blue/theme-light.css" />
+    <link id="layout-css" rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/layout/css/layout-light.css" />
+</head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+        <div className="loader-container">
+            <div className="loader">
+                <div className="bottom-section">
+                    <div className="bottom"></div>
+                    <div className="bottom"></div>
+                    <div className="bottom"></div>
+                    <div className="bottom"></div>
+                </div>
+                <div className="top-section">
+                    <div className="bottom"></div>
+                    <div className="bottom"></div>
+                    <div className="bottom"></div>
+                    <div className="bottom"></div>
+                </div>
+                <div className="middle"></div>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
