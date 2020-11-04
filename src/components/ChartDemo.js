@@ -10,15 +10,13 @@ export const ChartDemo = () => {
                 label: 'First Dataset',
                 data: [65, 59, 80, 81, 56, 55, 40],
                 fill: false,
-                backgroundColor: '#2f4860',
-                borderColor: '#2f4860'
+                borderColor: '#b944d6'
             },
             {
                 label: 'Second Dataset',
                 data: [28, 48, 40, 19, 86, 27, 90],
                 fill: false,
-                backgroundColor: '#00bb7e',
-                borderColor: '#00bb7e'
+                borderColor: '#0F97C7'
             }
         ]
     };
@@ -27,19 +25,14 @@ export const ChartDemo = () => {
         labels: ['A', 'B', 'C'],
         datasets: [
             {
-                data: [300, 50, 100],
+                data: [540, 325, 702, 421],
                 backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ],
-                hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
+                    '#0F97C7',
+                    '#b944d6',
+                    '#e2841a',
+                    '#10b163'
                 ]
-            }
-        ]
+            }]
     };
 
     const polarData = {
@@ -48,24 +41,21 @@ export const ChartDemo = () => {
                 11,
                 16,
                 7,
-                3,
-                14
+                3
             ],
             backgroundColor: [
-                "#FF6384",
-                "#4BC0C0",
-                "#FFCE56",
-                "#E7E9ED",
-                "#36A2EB"
+                '#0F97C7',
+                '#b944d6',
+                '#e2841a',
+                '#10b163'
             ],
             label: 'My dataset'
         }],
         labels: [
-            "Red",
-            "Green",
-            "Yellow",
-            "Grey",
-            "Blue"
+            'Blue',
+            'Purple',
+            'Orange',
+            'Green'
         ]
     };
 
@@ -74,34 +64,35 @@ export const ChartDemo = () => {
         datasets: [
             {
                 label: 'My First dataset',
-                backgroundColor: '#2f4860',
+                backgroundColor: '#0F97C7',
+                borderColor: '#0F97C7',
                 data: [65, 59, 80, 81, 56, 55, 40]
             },
             {
                 label: 'My Second dataset',
-                backgroundColor: '#00bb7e',
+                backgroundColor: '#e2841a',
+                borderColor: '#e2841a',
                 data: [28, 48, 40, 19, 86, 27, 90]
             }
         ]
     };
 
     const doughnutData = {
-        labels: ['A', 'B', 'C'],
+        labels: ['A','B','C'],
         datasets: [
             {
                 data: [300, 50, 100],
                 backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
+                    "#e2841a",
+                    "#0F97C7",
+                    "#10b163"
                 ],
                 hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
+                    "#edb575",
+                    "#6fc0dd",
+                    "#6fd0a1"
                 ]
-            }
-        ]
+            }]
     };
 
     const radarData = {
@@ -109,22 +100,22 @@ export const ChartDemo = () => {
         datasets: [
             {
                 label: 'My First dataset',
-                backgroundColor: 'rgba(179,181,198,0.2)',
-                borderColor: 'rgba(179,181,198,1)',
-                pointBackgroundColor: 'rgba(179,181,198,1)',
+                backgroundColor: 'rgba(15,151,199,0.2)',
+                borderColor: 'rgba(15,151,199,1)',
+                pointBackgroundColor: 'rgba(15,151,199,1)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(179,181,198,1)',
+                pointHoverBorderColor: 'rgba(15,151,199,1)',
                 data: [65, 59, 90, 81, 56, 55, 40]
             },
             {
                 label: 'My Second dataset',
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                pointBackgroundColor: 'rgba(255,99,132,1)',
+                backgroundColor: 'rgba(185,68,214,0.2)',
+                borderColor: 'rgba(185,68,214,1)',
+                pointBackgroundColor: 'rgba(185,68,214,1)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(255,99,132,1)',
+                pointHoverBorderColor: 'rgba(185,68,214,1)',
                 data: [28, 48, 40, 19, 96, 27, 100]
             }
         ]
