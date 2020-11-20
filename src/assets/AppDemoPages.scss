@@ -835,7 +835,10 @@ pre[class*="language-"] {
                 color: var(--text-color);
             }
             &.operator,
-            &.string {
+            &.string,
+            &.entity,
+            &.url,
+            &.variable {
                 background: transparent;
             }
         }
