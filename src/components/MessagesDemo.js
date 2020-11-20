@@ -12,19 +12,19 @@ export const MessagesDemo = () => {
     const message = useRef();
 
     const addSuccessMessage = () => {
-        message.current.show({ severity: 'success', content: 'Message Detail' });
+        message.current.show({ severity: 'success', summary: 'Message Detail' });
     };
 
     const addInfoMessage = () => {
-        message.current.show({ severity: 'info', content: 'Message Detail' });
+        message.current.show({ severity: 'info', summary: 'Message Detail' });
     };
 
     const addWarnMessage = () => {
-        message.current.show({ severity: 'warn', content: 'Message Detail' });
+        message.current.show({ severity: 'warn', summary: 'Message Detail' });
     };
 
     const addErrorMessage = () => {
-        message.current.show({ severity: 'error', content: 'Message Detail' });
+        message.current.show({ severity: 'error', summary: 'Message Detail' });
     };
 
     const showSuccess = () => {
