@@ -106,7 +106,7 @@ export const OverlayDemo = () => {
                         <h5>Confirmation</h5>
                         <Button label="Delete" icon="pi pi-trash" className="p-button-danger" onClick={() => setDisplayConfirmation(true)} />
                         <Dialog header="Confirmation" visible={displayConfirmation} onHide={() => setDisplayConfirmation(false)} style={{ width: '350px' }} modal footer={confirmationDialogFooter}>
-                            <div className="confirmation-content">
+                            <div className="p-d-flex p-ai-center p-jc-center">
                                 <i className="pi pi-exclamation-triangle p-mr-3" style={{ fontSize: '2rem' }} />
                                 <span>Are you sure you want to proceed?</span>
                             </div>

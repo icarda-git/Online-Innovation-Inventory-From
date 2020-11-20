@@ -358,14 +358,14 @@ export const CrudDemo = () => {
                     </Dialog>
 
                     <Dialog visible={deleteProductDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteProductDialogFooter} onHide={hideDeleteProductDialog}>
-                        <div className="confirmation-content">
+                        <div className="p-d-flex p-ai-center p-jc-center">
                             <i className="pi pi-exclamation-triangle p-mr-3" style={{ fontSize: '2rem' }} />
                             {product && <span>Are you sure you want to delete <b>{product.name}</b>?</span>}
                         </div>
                     </Dialog>
 
                     <Dialog visible={deleteProductsDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteProductsDialogFooter} onHide={hideDeleteProductsDialog}>
-                        <div className="confirmation-content">
+                        <div className="p-d-flex p-ai-center p-jc-center">
                             <i className="pi pi-exclamation-triangle p-mr-3" style={{ fontSize: '2rem' }} />
                             {product && <span>Are you sure you want to delete the selected products?</span>}
                         </div>
