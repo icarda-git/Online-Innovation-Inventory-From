@@ -129,6 +129,33 @@ export const Dashboard = () => {
         refreshDataset(event);
     };
 
+    const bodyTemplate = (data, props) => {
+        return (
+            <>
+                <span className="p-column-title">{props.header}</span>
+                {data[props.field]}
+            </>
+        );
+    };
+
+    const statusBodyTemplate = (data) => {
+        return (
+            <>
+                <span className="p-column-title">Status</span>
+                <span className={`product-badge status-${data.inventoryStatus.toLowerCase()}`}>{data.inventoryStatus}</span>
+            </>
+        )
+    };
+
+    const priceBodyTemplate = (data) => {
+        return (
+            <>
+                <span className="p-column-title">Price</span>
+                {formatCurrency(data.price)}
+            </>
+        );
+    };
+
     return (
         <div className="layout-dashboard">
             <div className="p-grid">
@@ -221,28 +248,28 @@ export const Dashboard = () => {
                                         <i className="pi pi-plus-circle"></i>
                                         <span className="order-label">New</span>
                                         <i className="stat-detail-icon icon-arrow-right-circle"></i>
-                                        <img src="assets/demo/images/dashboard/graph-new.svg" alt="diamond-vue" />
+                                        <img src="assets/demo/images/dashboard/graph-new.svg" alt="order" />
                                     </div>
                                     <div className="order-tab order-tab-completed p-col-6 p-md-3" onClick={onOrderTabClick}
                                         data-label="Completed Orders" data-index="1" data-stroke="#C5CAE9" data-fill="rgba(121, 134, 203, 0.2)">
                                         <i className="pi pi-check-circle"></i>
                                         <span className="order-label">Completed</span>
                                         <i className="stat-detail-icon icon-arrow-right-circle"></i>
-                                        <img src="assets/demo/images/dashboard/graph-completed.svg" alt="diamond-vue" />
+                                        <img src="assets/demo/images/dashboard/graph-completed.svg" alt="order" />
                                     </div>
                                     <div className="order-tab order-tab-refunded p-col-6 p-md-3" onClick={onOrderTabClick}
                                         data-label="Refunded Orders" data-index="2" data-stroke="#B2DFDB" data-fill="rgba(224, 242, 241, 0.5)">
                                         <i className="pi pi-refresh"></i>
                                         <span className="order-label">Refunded</span>
                                         <i className="stat-detail-icon icon-arrow-right-circle"></i>
-                                        <img src="assets/demo/images/dashboard/graph-refunded.svg" alt="diamond-vue" />
+                                        <img src="assets/demo/images/dashboard/graph-refunded.svg" alt="order" />
                                     </div>
                                     <div className="order-tab order-tab-cancelled p-col-6 p-md-3" onClick={onOrderTabClick}
                                         data-label="Cancelled Orders" data-index="3" data-stroke="#B2EBF2" data-fill="rgba(224, 247, 250, 0.5)">
                                         <i className="pi pi-times-circle"></i>
                                         <span className="order-label">Cancelled</span>
                                         <i className="stat-detail-icon icon-arrow-right-circle"></i>
-                                        <img src="assets/demo/images/dashboard/graph-cancelled.svg" alt="diamond-vue" />
+                                        <img src="assets/demo/images/dashboard/graph-cancelled.svg" alt="order" />
                                     </div>
                                 </div>
                             </div>
@@ -264,12 +291,12 @@ export const Dashboard = () => {
 
                         <p>Your sales activity over time.</p>
 
-                        <DataTable value={products} paginator rows={5}>
-                            <Column field="id" header="ID" sortable></Column>
-                            <Column field="category" header="Category" sortable></Column>
-                            <Column field="price" header="Price" sortable body={(data) => formatCurrency(data.price)}></Column>
-                            <Column field="inventoryStatus" header="Status" sortable body={(data) => <span className={`product-badge status-${data.inventoryStatus.toLowerCase()}`}>{data.inventoryStatus}</span>}></Column>
-                            <Column bodyStyle={{ textAlign: 'center' }} body={() => <Button type="button" icon="pi pi-search"></Button>}></Column>
+                        <DataTable value={products} paginator rows={5} className="p-datatable-products">
+                            <Column field="id" header="ID" sortable body={bodyTemplate}></Column>
+                            <Column field="category" header="Category" sortable body={bodyTemplate}></Column>
+                            <Column field="price" header="Price" sortable body={priceBodyTemplate}></Column>
+                            <Column field="inventoryStatus" header="Status" sortable body={statusBodyTemplate}></Column>
+                            <Column bodyStyle={{ textAlign: 'center', justifyContent: 'center' }} body={() => <Button type="button" icon="pi pi-search"></Button>}></Column>
                         </DataTable>
                     </div>
                 </div>

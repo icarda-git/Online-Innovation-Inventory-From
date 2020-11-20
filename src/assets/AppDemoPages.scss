@@ -83,6 +83,45 @@
             color: #8a5340;
         }
     }
+
+    /* Responsive */
+    .p-datatable-products .p-datatable-tbody > tr > td .p-column-title {
+        display: none;
+    }
+
+    @media screen and (max-width: 960px) {
+        .p-datatable {
+            &.p-datatable-products {
+                .p-datatable-thead > tr > th,
+                .p-datatable-tfoot > tr > td {
+                    display: none !important;
+                }
+
+                .p-datatable-tbody > tr {
+                    border-bottom: 1px solid var(--surface-d);
+
+                    > td {
+                        text-align: left;
+                        display: flex;
+                        align-items: center;
+                        border: 0 none !important;
+                        width: 100% !important;
+                        float: left;
+                        clear: left;
+                        border: 0 none;
+
+                        .p-column-title {
+                            padding: .4rem;
+                            min-width: 30%;
+                            display: inline-block;
+                            margin: -.4rem 1rem -.4rem -.4rem;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .floatlabel-demo {
@@ -506,11 +545,12 @@
                 }
 
                 .p-datatable-tbody > tr {
-                    border-bottom: 1px solid var(--layer-2);
+                    border-bottom: 1px solid var(--surface-d);
 
                     > td {
                         text-align: left;
-                        display: block;
+                        display: flex;
+                        align-items: center;
                         border: 0 none !important;
                         width: 100% !important;
                         float: left;
@@ -527,6 +567,19 @@
 
                         .p-progressbar {
                             margin-top: .5rem;
+                            width: 100%;
+                        }
+
+                        .p-rating {
+                            display: inline-block;
+                        }
+                    }
+
+                    &.p-rowgroup-footer {
+                        > td {
+                            display: inline-flex;
+                            width: auto !important;
+                            float: none;
                         }
                     }
                 }
@@ -594,6 +647,8 @@
                 }
 
                 .p-datatable-tbody > tr {
+                    border-bottom: 1px solid var(--surface-d);
+
                     > td {
                         text-align: left;
                         display: flex;
