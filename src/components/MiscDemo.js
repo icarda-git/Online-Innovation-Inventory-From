@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ProgressBar } from 'primereact/progressbar';
+import { ProgressSpinner } from 'primereact/progressspinner';
 import { Button } from 'primereact/button';
 
 export const MiscDemo = () => {
@@ -40,6 +41,9 @@ export const MiscDemo = () => {
                             <ProgressBar value="50" showValue={false} />
                         </div>
                     </div>
+
+                    <h5>ProgressSpinner</h5>
+                    <ProgressSpinner />
                 </div>
             </div>
 

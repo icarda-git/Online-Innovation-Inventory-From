@@ -27,8 +27,10 @@
 
 		.country-item-value {
 			border-radius: 3px;
-			display: inline-flex;
-			margin-right: .5rem;
+            display: inline-flex;
+            vertical-align: top;
+            margin-right: .5rem;
+            padding-right: .5rem;
 			background-color: #2196F3;
             color: #ffffff;
 		}
@@ -241,7 +243,24 @@
 
 	.p-overlay-badge {
 		margin-right: 2rem;
-	}
+    }
+
+    @keyframes p-progress-spinner-color {
+        100%,
+        0% {
+            stroke: #2196F3;
+        }
+        40% {
+            stroke: #ec407a;
+        }
+        66% {
+            stroke: #66bb6a;
+        }
+        80%,
+        90% {
+            stroke: #ffa726;
+        }
+    }
 }
 
 .overlay-demo {
