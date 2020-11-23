@@ -45,7 +45,7 @@ export const PanelDemo = () => {
     };
     const toolbarRightTemplate = <SplitButton label="Options" model={toolbarItems} menuStyle={{width: '12rem'}}></SplitButton>;
     const cardHeader = (
-        <div className="p-card-title">
+        <div className="p-card-title p-px-3 p-pt-3">
             <h5>Card</h5>
             <Button icon="pi pi-plus" className="p-button-text" />
         </div>
@@ -125,14 +125,13 @@ export const PanelDemo = () => {
 						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </Fieldset>
                 </div>
-                <div className="card">
-                    <Card header={cardHeader} subTitle="Subtitle">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </Card>
-                </div>
+
+                <Card header={cardHeader} subTitle="Subtitle">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </Card>
             </div>
         </div>
     )
