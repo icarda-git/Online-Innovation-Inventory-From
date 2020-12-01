@@ -42,7 +42,10 @@ export const TableDemo = () => {
     };
 
     const expandAll = () => {
-        setExpandedRows(products.filter(p => p.id));
+        let _expandedRows = {}
+        products.forEach(p => _expandedRows[`${p.id}`] = true);
+
+        setExpandedRows(_expandedRows);
         toast.current.show({ severity: 'success', summary: 'All Rows Expanded', life: 3000 });
     };
 
