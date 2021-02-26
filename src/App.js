@@ -41,12 +41,14 @@ import { Invoice } from './pages/Invoice';
 import { Help } from './pages/Help';
 import { EmptyPage } from './pages/EmptyPage';
 
-import PrimeReact from 'primereact/utils';
+import PrimeReact from 'primereact/api';
 
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import './App.scss';
+import { InvalidStateDemo } from './components/InvalidStateDemo';
+import { TimelineDemo } from './pages/TimelineDemo';
 
 const App = () => {
 
@@ -86,6 +88,7 @@ const App = () => {
                 { label: "Form Layout", icon: "pi pi-fw pi-id-card", to: "/formlayout" },
                 { label: "Input", icon: "pi pi-fw pi-check-square", to: "/input" },
                 { label: "Float Label", icon: "pi pi-fw pi-bookmark", to: "/floatlabel" },
+                { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/invalidstate' },
                 { label: "Button", icon: "pi pi-fw pi-mobile", to: "/button" },
                 { label: "Table", icon: "pi pi-fw pi-table", to: "/table" },
                 { label: "List", icon: "pi pi-fw pi-list", to: "/list" },
@@ -121,6 +124,7 @@ const App = () => {
             items: [
                 { label: "Crud", icon: "pi pi-fw pi-pencil", to: "/crud" },
                 { label: "Calendar", icon: "pi pi-fw pi-calendar-plus", to: "/calendar" },
+                { label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/timeline' },
                 { label: "Landing", icon: "pi pi-fw pi-user-plus", url: "assets/pages/landing.html", target: "_blank" },
                 { label: "Login", icon: "pi pi-fw pi-sign-in", to: "/login" },
                 { label: "Invoice", icon: "pi pi-fw pi-dollar", to: "/invoice" },
@@ -189,6 +193,7 @@ const App = () => {
         { path: '/formlayout', component: FormLayoutDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Form Layout' }] } },
         { path: '/input', component: InputDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Input' }] } },
         { path: '/floatlabel', component: FloatLabelDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Float Label' }] } },
+        { path: '/invalidstate', component: InvalidStateDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Invalid State' }] } },
         { path: '/button', component: ButtonDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Button' }] } },
         { path: '/table', component: TableDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Table' }] } },
         { path: '/list', component: ListDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'List' }] } },
@@ -212,6 +217,7 @@ const App = () => {
         { path: '/text', component: TextDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Text' }] } },
         { path: '/crud', component: CrudDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Crud' }] } },
         { path: '/calendar', component: CalendarDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Calendar' }] } },
+        { path: '/timeline', component: TimelineDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Timeline' }] } },
         { path: '/invoice', component: Invoice, meta: { breadcrumb: [{ parent: 'Pages', label: 'Invoice' }] } },
         { path: '/help', component: Help, meta: { breadcrumb: [{ parent: 'Pages', label: 'Help' }] } },
         { path: '/empty', component: EmptyPage, meta: { breadcrumb: [{ parent: 'Pages', label: 'Empty Page' }] } },
