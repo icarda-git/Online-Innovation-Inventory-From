@@ -12,7 +12,7 @@ const AppSearch = (props) => {
 
         //escape, tab and enter
         if (key === 27 || key === 9 || key === 13) {
-            props.searchHide(event);
+            props.onSearchHide(event);
         }
     };
 

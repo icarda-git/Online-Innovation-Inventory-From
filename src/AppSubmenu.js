@@ -87,7 +87,7 @@ const AppSubmenu = (props) => {
     }
 
     const getItems = () => {
-        const transitionTimeout =  isSlim() && props.root ? { enter: 400, exit: 400 } : (props.root ? 0 : { enter: 1000, exit: 450 });
+        const transitionTimeout =  props.mobileMenuActive ? 0 : (isSlim() && props.root ? { enter: 400, exit: 400 } : (props.root ? 0 : { enter: 1000, exit: 450 }));
         return props.items.map((item, i) => {
             if (visible(item)) {
                 if (!item.separator) {

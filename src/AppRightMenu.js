@@ -80,7 +80,7 @@ const AppRightMenu = (props) => {
 
             <h5>Shipment Tracking</h5>
             <p>Track your ongoing shipments to customers.</p>
-            <img className="logo-image" src="assets/demo/images/sidebar-right/staticmap.png" alt="diamond-vue" style={{ width: '100%' }} />
+            <img className="logo-image" src="assets/demo/images/sidebar-right/staticmap.png" alt="logo-shipment" style={{ width: '100%' }} />
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ProgressBar } from 'primereact/progressbar';
+import { ProgressSpinner } from 'primereact/progressspinner';
 import { Button } from 'primereact/button';
 import { Badge } from 'primereact/badge';
 import { Tag } from 'primereact/tag';
@@ -48,6 +49,9 @@ export const MiscDemo = () => {
                             <ProgressBar value="50" showValue={false} />
                         </div>
                     </div>
+
+                    <h5>ProgressSpinner</h5>
+                    <ProgressSpinner />
                 </div>
             </div>
             <div className="p-col-12 p-lg-6">
