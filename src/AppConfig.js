@@ -107,8 +107,6 @@ const AppConfig = (props) => {
         event.preventDefault();
     };
 
-
-
     const getMenuThemes = () => {
         if (props.colorScheme === 'light') {
             return (

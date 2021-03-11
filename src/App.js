@@ -436,6 +436,9 @@ const App = () => {
 
     const onMenuModeChange = (e) => {
         setMenuMode(e.value);
+        if(e.value === 'static') {
+            setStaticMenuDesktopInactive(false)
+        }
     };
 
 
