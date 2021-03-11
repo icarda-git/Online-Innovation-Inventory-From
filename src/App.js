@@ -66,6 +66,10 @@ const App = () => {
     const [configActive, setConfigActive] = useState(false);
     const [inputStyle, setInputStyle] = useState('outlined');
     const [ripple, setRipple] = useState(false);
+    const [logoColor, setLogoColor] = useState('white');
+    const [componentTheme, setComponentTheme] = useState('blue');
+    const [logoUrl, setLogoUrl] = useState('assets/layout/images/logo-dark.svg')
+
 
     let menuClick = false;
     let searchClick = false;
@@ -88,8 +92,8 @@ const App = () => {
                 { label: "Form Layout", icon: "pi pi-fw pi-id-card", to: "/formlayout" },
                 { label: "Input", icon: "pi pi-fw pi-check-square", to: "/input" },
                 { label: "Float Label", icon: "pi pi-fw pi-bookmark", to: "/floatlabel" },
-                { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/invalidstate' },
-                { label: "Button", icon: "pi pi-fw pi-mobile", to: "/button" },
+                { label: "Invalid State", icon: 'pi pi-fw pi-exclamation-circle', to: '/invalidstate' },
+                { label: "Button", icon: "pi pi-fw pi-mobile", to: "/button", className: 'rotated-icon' },
                 { label: "Table", icon: "pi pi-fw pi-table", to: "/table" },
                 { label: "List", icon: "pi pi-fw pi-list", to: "/list" },
                 { label: "Tree", icon: "pi pi-fw pi-share-alt", to: "/tree" },
@@ -218,7 +222,7 @@ const App = () => {
         { path: '/crud', component: CrudDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Crud' }] } },
         { path: '/calendar', component: CalendarDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Calendar' }] } },
         { path: '/timeline', component: TimelineDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Timeline' }] } },
-        { path: '/invoice', component: Invoice, meta: { breadcrumb: [{ parent: 'Pages', label: 'Invoice' }] } },
+        { path: '/invoice', component: () => <Invoice logoUrl={logoUrl} />, meta: { breadcrumb: [{ parent: 'Pages', label: 'Invoice' }] } },
         { path: '/help', component: Help, meta: { breadcrumb: [{ parent: 'Pages', label: 'Help' }] } },
         { path: '/empty', component: EmptyPage, meta: { breadcrumb: [{ parent: 'Pages', label: 'Empty Page' }] } },
         { path: '/documentation', component: Documentation, meta: { breadcrumb: [{ parent: 'Pages', label: 'Documentation' }] } }
@@ -233,9 +237,114 @@ const App = () => {
         }
     }, [staticMenuMobileActive]);
 
+    useEffect(() => {
+        changeStyleSheetUrl('layout-css', 'layout-' + colorScheme + '.css', 1);
+        changeStyleSheetUrl('theme-css', 'theme-' + colorScheme + '.css', 1);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
     const onInputStyleChange = (inputStyle) => {
         setInputStyle(inputStyle);
     };
+
+    const changeMenuTheme = (name, logoColor, componentTheme) => {
+        onMenuThemeChange(name);
+        changeStyleSheetUrl('theme-css', componentTheme, 2);
+        setComponentTheme(componentTheme)
+
+        const appLogoLink = document.getElementById('app-logo');
+        const appLogoUrl = `assets/layout/images/logo-${logoColor === 'dark' ? 'dark' : 'white'}.svg`;
+
+        if (appLogoLink) {
+            appLogoLink.src = appLogoUrl;
+        }
+        setLogoColor(logoColor);
+    };
+
+    const changeComponentTheme = (theme) => {
+        setComponentTheme(theme)
+        changeStyleSheetUrl('theme-css', theme, 3);
+    };
+
+    const changeColorScheme = (e) => {
+        setColorScheme(e.value);
+
+        const scheme = e.value;
+        changeStyleSheetUrl('layout-css', 'layout-' + scheme + '.css', 1);
+        changeStyleSheetUrl('theme-css', 'theme-' + scheme + '.css', 1);
+        changeLogo(scheme);
+    };
+
+    const changeStyleSheetUrl = (id, value, from) => {
+        const element = document.getElementById(id);
+        const urlTokens = element.getAttribute('href').split('/');
+
+        if (from === 1) {
+            // which function invoked this function
+            urlTokens[urlTokens.length - 1] = value;
+        } else if (from === 2) {
+            // which function invoked this function
+            if (value !== null) {
+                urlTokens[urlTokens.length - 2] = value;
+            }
+        } else if (from === 3) {
+            // which function invoked this function
+            urlTokens[urlTokens.length - 2] = value;
+        }
+
+        const newURL = urlTokens.join('/');
+
+        replaceLink(element, newURL);
+    };
+
+    const changeLogo = (scheme) => {
+        const appLogoLink = document.getElementById("app-logo");
+        const mobileLogoLink = document.getElementById("logo-mobile");
+        const invoiceLogoLink = document.getElementById("invoice-logo");
+        const footerLogoLink = document.getElementById("footer-logo");
+        setLogoUrl(`assets/layout/images/logo-${scheme === 'light' ? 'dark' : 'white'}.svg`);
+
+        if (appLogoLink) {
+            appLogoLink.src = `assets/layout/images/logo-${scheme === 'light' ? logoColor : 'white'}.svg`;
+        }
+
+        if (mobileLogoLink) {
+            mobileLogoLink.src = logoUrl;
+        }
+
+        if (invoiceLogoLink) {
+            invoiceLogoLink.src = logoUrl;
+        }
+
+        if (footerLogoLink) {
+            footerLogoLink.src = logoUrl;
+        }
+    };
+
+    const replaceLink = (linkElement, href) => {
+        if (isIE()) {
+            linkElement.setAttribute("href", href);
+        }
+        else {
+            const id = linkElement.getAttribute("id");
+            const cloneLinkElement = linkElement.cloneNode(true);
+
+            cloneLinkElement.setAttribute("href", href);
+            cloneLinkElement.setAttribute("id", id + "-clone");
+
+            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+
+            cloneLinkElement.addEventListener("load", () => {
+                linkElement.remove();
+                cloneLinkElement.setAttribute("id", id);
+            });
+        }
+    };
+
+
+    const isIE = () => {
+        return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
+    };
+
 
     const onRippleChange = (e) => {
         PrimeReact.ripple = e.value;
@@ -329,9 +438,6 @@ const App = () => {
         setMenuMode(e.value);
     };
 
-    const onColorSchemeChange = (e) => {
-        setColorScheme(e.value);
-    };
 
     const onTopbarUserMenuButtonClick = (event) => {
         userMenuClick = true;
@@ -462,8 +568,8 @@ const App = () => {
 
             <AppRightMenu rightMenuActive={rightMenuActive} onRightMenuClick={onRightMenuClick}></AppRightMenu>
 
-            <AppConfig configActive={configActive} menuMode={menuMode} onMenuModeChange={onMenuModeChange} menuTheme={menuTheme} onMenuThemeChange={onMenuThemeChange}
-                colorScheme={colorScheme} onColorSchemeChange={onColorSchemeChange} onConfigClick={onConfigClick} onConfigButtonClick={onConfigButtonClick}
+            <AppConfig configActive={configActive} menuMode={menuMode} onMenuModeChange={onMenuModeChange} colorScheme={colorScheme} changeColorScheme={changeColorScheme} menuTheme={menuTheme} changeMenuTheme={changeMenuTheme}
+                componentTheme={componentTheme} changeComponentTheme={changeComponentTheme} onConfigClick={onConfigClick} onConfigButtonClick={onConfigButtonClick}
                 rippleActive={ripple} onRippleChange={onRippleChange} inputStyle={inputStyle} onInputStyleChange={onInputStyleChange}></AppConfig>
 
             <AppSearch searchActive={searchActive} onSearchClick={onSearchClick} onSearchHide={onSearchHide} />

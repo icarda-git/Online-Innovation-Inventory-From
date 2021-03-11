@@ -298,6 +298,7 @@
     .p-progressbar {
         height: .5rem;
         background-color: #D8DADC;
+
         .p-progressbar-value {
             background-color: #607D8B;
         }
@@ -310,26 +311,42 @@
     .table-header {
         display: flex;
         justify-content: space-between;
+
+        @media(max-width: 768px) {
+            flex-direction: column;
+        }
     }
 
     .p-datatable.p-datatable-customers {
+
+        .p-datatable-tbody {
+            > tr {
+                border-bottom: 1px solid var(--surface-d);
+            }
+        }
+
         .p-datatable-header {
             padding: 1rem;
             text-align: left;
             font-size: 1.5rem;
         }
+
         .p-paginator {
             padding: 1rem;
         }
+
         .p-datatable-thead > tr > th {
             text-align: left;
         }
+
         .p-datatable-tbody > tr > td {
             cursor: auto;
         }
+
         .p-dropdown-label:not(.p-placeholder) {
             text-transform: uppercase;
         }
+
     }
 
     /* Responsive */
@@ -349,22 +366,27 @@
             background: #C8E6C9;
             color: #256029;
         }
+
         &.status-unqualified {
             background: #FFCDD2;
             color: #C63737;
         }
+
         &.status-negotiation {
             background: #FEEDAF;
             color: #8A5340;
         }
+
         &.status-new {
             background: #B3E5FC;
             color: #23547B;
         }
+
         &.status-renewal {
             background: #ECCFFF;
             color: #694382;
         }
+
         &.status-proposal {
             background: #FFD8B2;
             color: #805B36;
@@ -397,14 +419,17 @@
         font-weight: 700;
         font-size: 12px;
         letter-spacing: .3px;
+
         &.status-instock {
             background: #C8E6C9;
             color: #256029;
         }
+
         &.status-outofstock {
             background: #FFCDD2;
             color: #C63737;
         }
+
         &.status-lowstock {
             background: #FEEDAF;
             color: #8A5340;
@@ -418,18 +443,22 @@
         font-weight: 700;
         font-size: 12px;
         letter-spacing: .3px;
+
         &.order-delivered {
             background: #C8E6C9;
             color: #256029;
         }
+
         &.order-cancelled {
             background: #FFCDD2;
             color: #C63737;
         }
+
         &.order-pending {
             background: #FEEDAF;
             color: #8A5340;
         }
+
         &.order-returned {
             background: #ECCFFF;
             color: #694382;
@@ -445,12 +474,9 @@
                 }
 
                 .p-datatable-tbody > tr {
-                    border-bottom: 1px solid var(--surface-d);
-
                     > td {
                         text-align: left;
-                        display: flex;
-                        align-items: center;
+                        display: block;
                         border: 0 none !important;
                         width: 100% !important;
                         float: left;
@@ -467,19 +493,6 @@
 
                         .p-progressbar {
                             margin-top: .5rem;
-                            width: 100%;
-                        }
-
-                        .p-rating {
-                            display: inline-block;
-                        }
-                    }
-
-                    &.p-rowgroup-footer {
-                        > td {
-                            display: inline-flex;
-                            width: auto !important;
-                            float: none;
                         }
                     }
                 }
@@ -490,9 +503,13 @@
 
 .crud-demo {
     .table-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        @media screen and (min-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row!important;
+        }
     }
 
     .product-image {
@@ -500,10 +517,21 @@
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
 
+    .p-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
     .p-dialog .product-image {
         width: 150px;
         margin: 0 auto 2rem auto;
         display: block;
+    }
+
+    .confirmation-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .product-badge {
@@ -513,14 +541,17 @@
         font-weight: 700;
         font-size: 12px;
         letter-spacing: .3px;
+
         &.status-instock {
             background: #C8E6C9;
             color: #256029;
         }
+
         &.status-outofstock {
             background: #FFCDD2;
             color: #C63737;
         }
+
         &.status-lowstock {
             background: #FEEDAF;
             color: #8A5340;
@@ -542,7 +573,6 @@
 
                 .p-datatable-tbody > tr {
                     border-bottom: 1px solid var(--surface-d);
-
                     > td {
                         text-align: left;
                         display: flex;
@@ -584,14 +614,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.25rem;
+        font-weight: 600;
         margin: 2rem;
         border-radius: 4px;
-    }
-    .shadow-container {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
     }
 }
 
@@ -772,6 +797,14 @@ pre[class*="language-"] {
             .p-card {
                 margin-top: 1rem;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .fc-toolbar {
+        &.fc-header-toolbar {
+            flex-wrap: wrap;
         }
     }
 }
